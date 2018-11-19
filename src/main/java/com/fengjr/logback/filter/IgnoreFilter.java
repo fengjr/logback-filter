@@ -1,4 +1,4 @@
-package com.fengjr.logback;
+package com.fengjr.logback.filter;
 
 import ch.qos.logback.classic.spi.CallerData;
 import ch.qos.logback.classic.spi.ILoggingEvent;

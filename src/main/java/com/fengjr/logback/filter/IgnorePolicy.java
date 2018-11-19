@@ -1,4 +1,4 @@
-package com.fengjr.logback;
+package com.fengjr.logback.filter;
 
 public class IgnorePolicy {
     private MethodPrefix methodPrefix;

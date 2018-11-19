@@ -1,7 +1,6 @@
-package com.fengjr.logback;
+package com.fengjr.logback.filter;
 
-public class MethodPrefix {
-
+public class MsgRegex {
     private Array array;
 
     public Array getArray() {
@@ -11,5 +10,4 @@ public class MethodPrefix {
     public void setArray(Array array) {
         this.array = array;
     }
-
 }

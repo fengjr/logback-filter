@@ -8,17 +8,17 @@
         <onMatch>NEUTRAL</onMatch>
         <onMismatch>DENY</onMismatch>
     </filter>
-    <filter class="com.fengjr.logback.IgnoreFilter">
-        <ignorePolicy class="com.fengjr.logback.IgnorePolicy">
-            <methodPrefix class="com.fengjr.logback.MethodPrefix">
-                <array class="com.fengjr.logback.Array">
+    <filter class="com.fengjr.logback.filter.IgnoreFilter">
+        <ignorePolicy class="com.fengjr.logback.filter.IgnorePolicy">
+            <methodPrefix class="com.fengjr.logback.filter.MethodPrefix">
+                <array class="com.fengjr.logback.filter.Array">
                     <value>select</value>
                     <value>count</value>
                     <value>list</value>
                 </array>
             </methodPrefix>
-            <msgRegex class="com.fengjr.logback.MsgRegex">
-                <array class="com.fengjr.logback.Array">
+            <msgRegex class="com.fengjr.logback.filter.MsgRegex">
+                <array class="com.fengjr.logback.filter.Array">
                     <value>.*(one).*</value>
                     <value>.*(two).*</value>
                     <value>.*(three).*</value>
