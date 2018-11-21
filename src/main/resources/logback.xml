@@ -1,42 +1,42 @@
 <?xml version="1.0"?>
 <configuration scan="true" scanPeriod="30 seconds">
-<property name="fileDir" value="/export/log/ingoreTest"/>
-<appender name="debugFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>D://logs/fengjr-logback-filter/debug.log</file>
-    <filter class="ch.qos.logback.classic.filter.LevelFilter">
-        <level>DEBUG</level>
-        <onMatch>NEUTRAL</onMatch>
-        <onMismatch>DENY</onMismatch>
-    </filter>
-    <filter class="com.fengjr.logback.filter.IgnoreFilter">
-        <ignorePolicy class="com.fengjr.logback.filter.IgnorePolicy">
-            <methodPrefix class="com.fengjr.logback.filter.MethodPrefix">
-                <array class="com.fengjr.logback.filter.Array">
-                    <value>select</value>
-                    <value>count</value>
-                    <value>list</value>
-                </array>
-            </methodPrefix>
-            <msgRegex class="com.fengjr.logback.filter.MsgRegex">
-                <array class="com.fengjr.logback.filter.Array">
-                    <value>.*(one).*</value>
-                    <value>.*(two).*</value>
-                    <value>.*(three).*</value>
-                </array>
-            </msgRegex>
-        </ignorePolicy>
-    </filter>
-    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-        <FileNamePattern>${fileDir}/debug.%d{yyyy-MM-dd}.log</FileNamePattern>
-        <MaxHistory>30</MaxHistory>
-    </rollingPolicy>
-    <encoder>
-        <pattern>%date [%thread] %-5level %logger{80}.%M- %msg%n</pattern>
-    </encoder>
-</appender>
+    <property name="fileDir" value="/export/log/ingoreTest"/>
+    <appender name="debugFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D://logs/fengjr-logback-filter/debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>NEUTRAL</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <filter class="com.fengjr.logback.filter.IgnoreFilter">
+            <ignorePolicy class="com.fengjr.logback.filter.IgnorePolicy">
+                <methodPrefix class="com.fengjr.logback.filter.MethodPrefix">
+                    <array class="com.fengjr.logback.filter.Array">
+                        <value>select</value>
+                        <value>count</value>
+                        <value>list</value>
+                    </array>
+                </methodPrefix>
+                <msgRegex class="com.fengjr.logback.filter.MsgRegex">
+                    <array class="com.fengjr.logback.filter.Array">
+                        <value>.*(one).*</value>
+                        <value>.*(two).*</value>
+                        <value>.*(three).*</value>
+                    </array>
+                </msgRegex>
+            </ignorePolicy>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${fileDir}/debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger{80}.%M- %msg%n</pattern>
+        </encoder>
+    </appender>
 
-<root>
-    <level value="DEBUG"/>
-    <appender-ref ref="debugFile"/>
-</root>
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="debugFile"/>
+    </root>
 </configuration>

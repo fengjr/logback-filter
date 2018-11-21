@@ -18,12 +18,12 @@ public class IgnoreTest {
 
     @Test
     public void testHello() {
-        logger.debug(String.format("测试-testHello1 1ne %s","Mm"));
+        logger.debug(String.format("测试-testHello1 1ne %s", "Mm"));
     }
 
     @Test
     public void testRegex() {
         String str = "1-one-1";
-        System.out.println(Pattern.matches(".*(one).*",str));
+        System.out.println(Pattern.matches(".*(one).*", str));
     }
 }

@@ -14,7 +14,7 @@ public class Array {
         this.values = values;
     }
 
-    public void addValue(String value){
+    public void addValue(String value) {
         values.add(value);
     }
 }

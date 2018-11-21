@@ -21,13 +21,13 @@ public class IgnoreFilter extends Filter<ILoggingEvent> {
     public FilterReply decide(ILoggingEvent event) {
         //获取打印日志的方法名
         String[] logArray = event.getLoggerName().split("\\.");
-        String methodName = logArray[logArray.length -1];
+        String methodName = logArray[logArray.length - 1];
         //1、方法前缀过滤
         MethodPrefix methodPrefix = ignorePolicy.getMethodPrefix();
-        if(methodPrefix != null && methodPrefix.getArray() != null){
+        if (methodPrefix != null && methodPrefix.getArray() != null) {
             List<String> methodPrefixList = methodPrefix.getArray().getValues();
-            for (String methodPrefixStr:methodPrefixList ){
-                if (methodName.startsWith(methodPrefixStr)){
+            for (String methodPrefixStr : methodPrefixList) {
+                if (methodName.startsWith(methodPrefixStr)) {
                     return FilterReply.DENY;
                 }
             }
@@ -35,10 +35,10 @@ public class IgnoreFilter extends Filter<ILoggingEvent> {
         //2、日志内容过滤
         String message = event.getMessage();
         MsgRegex msgRegex = ignorePolicy.getMsgRegex();
-        if(msgRegex !=null && msgRegex.getArray()!=null){
-            List<String> msgRegexList= msgRegex.getArray().getValues();
-            for (String msgRegexStr:msgRegexList) {
-                if(Pattern.matches(msgRegexStr,message)){
+        if (msgRegex != null && msgRegex.getArray() != null) {
+            List<String> msgRegexList = msgRegex.getArray().getValues();
+            for (String msgRegexStr : msgRegexList) {
+                if (Pattern.matches(msgRegexStr, message)) {
                     return FilterReply.DENY;
                 }
             }
