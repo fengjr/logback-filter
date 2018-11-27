@@ -1,10 +1,17 @@
 ## 1 项目介绍
 ---
-   fengjr-logback-filter主要对logback中输出日志进行过滤，以便节省磁盘空间。目前支持打印日志的方法前缀过滤和日志内容的正则过滤两种方式。
-    
+   凤凰金融后端技术使用的主要是java语言，日志输出组件基本用的都是logback，orm框架用的是mybatis，为了更好的记录对数据库的操作日志，我们将mybatis的SQL执行过程单独打印到了一个文件。
+   随着业务量的增长，某些应用每天打印的SQL日志已经达到好几百G，经过权衡，我们决定不再打印查询的日志，只打印增删改的SQL日志。
+   由于项目众多，我们希望能找到一个通用的，并且能够通过更改类似logback配置的方法完成上述任务，
+   经过调研发现，我们可以通过继承实现"ch.qos.logback.core.filter.Filter"类来达到我们的目的，最终诞生了本项目。
+   
+   logback-filter主要对logback中输出日志进行过滤，并保持了logback原汁原味的配置方式。
+   
+   目前支持 通过 ```前缀``` 和 ```正则表达式``` 两种方式过滤不想打印的日志。
+
 ## 2 依赖配置
 ---
-   在使用fengjr-logback-filter工具时，需要在pom.xml文件中引入dependency
+   在使用logback-filter工具时，需要在pom.xml文件中引入dependency
 ```xml
     <dependency>
           <groupId>com.fengjr</groupId>
@@ -14,7 +21,7 @@
 ```
 ## 3 配置说明
 ---
-  引入fengjr-logback-filter依赖包后,在logback.xml进行配置就能完成日志过滤。  
+  引入logback-filter依赖包后,在logback.xml进行配置就能完成日志过滤。  
   下面以debugFile日志输出为例,如果debug日志的输出方法以select、count或list开头,此条日志不会打印；如果日志输出内容包含one、two或three此条日志不会打印。
   
 配置如下
