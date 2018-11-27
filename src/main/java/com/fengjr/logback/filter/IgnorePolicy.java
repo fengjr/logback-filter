@@ -3,6 +3,7 @@ package com.fengjr.logback.filter;
 public class IgnorePolicy {
     private MethodPrefix methodPrefix;
     private MsgRegex msgRegex;
+
     public MethodPrefix getMethodPrefix() {
         return methodPrefix;
     }
